@@ -1,0 +1,9 @@
+{
+  "name": "ilyas-portfolio-api",
+  "version": "1.0.0",
+  "description": "Secure Claude API proxy for portfolio chatbot",
+  "private": true,
+  "engines": {
+    "node": ">=18"
+  }
+}
