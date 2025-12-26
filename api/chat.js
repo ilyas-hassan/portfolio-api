@@ -1,21 +1,10 @@
 // api/chat.js
 // Secure Claude API proxy for Ilyas's Portfolio Chatbot
-// This keeps your API key safe on the server
 
 export default async function handler(req, res) {
-    // CORS headers - update with your actual domain after deployment
-    const allowedOrigins = [
-        'http://localhost:3000',
-        'http://127.0.0.1:5500',  // VS Code Live Server
-        'https://ilyas-hassan.github.io',  // ← CHANGE THIS to your GitHub Pages URL
-    ];
-    
-    const origin = req.headers.origin;
-    if (allowedOrigins.includes(origin)) {
-        res.setHeader('Access-Control-Allow-Origin', origin);
-    }
-    
-    res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
+    // CORS headers - allow all origins for now (you can restrict later)
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
     
     // Handle preflight
@@ -98,7 +87,7 @@ Say something like: "Would you like me to pass your info to Ilyas? He typically 
 
         // Build messages array
         const messages = [
-            ...conversationHistory.slice(-10), // Keep last 10 messages for context
+            ...conversationHistory.slice(-10),
             { role: 'user', content: message }
         ];
         
