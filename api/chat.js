@@ -7,7 +7,7 @@ export default async function handler(req, res) {
     const allowedOrigins = [
         'http://localhost:3000',
         'http://127.0.0.1:5500',  // VS Code Live Server
-        'https://yourusername.github.io',  // ← CHANGE THIS to your GitHub Pages URL
+        'https://ilyas-hassan.github.io',  // ← CHANGE THIS to your GitHub Pages URL
     ];
     
     const origin = req.headers.origin;
